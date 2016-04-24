@@ -5,9 +5,8 @@
   <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
   <script type="text/javascript">
-    var query = window.location.search.substring(1);
     var slideshow = remark.create({
-      sourceUrl: query ? "slides/" + query : "contents.md"
+      sourceUrl: "contents.md"
     });
 
     // Setup MathJax
