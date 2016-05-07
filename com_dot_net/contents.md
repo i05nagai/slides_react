@@ -487,10 +487,12 @@ C#以外にCLR上で動作する言語は以下のようなものがある。
 
 ##参考文献
 * Windows
-    * [1][Windows Internals]()
-    * [2][Inside Windows(邦訳)]()
+    * [1][Windows Internals, part 1](http://www.amazon.co.jp/Windows-Internals-Part-Developer-Reference/dp/0735648735)
+    * [1][Windows Internals, part 2](http://www.amazon.co.jp/Windows-Internals-Part-Developer-Reference/dp/0735665877/ref=pd_bxgy_14_img_2?ie=UTF8&refRID=0BS169F308BQVHDD96R1)
+    * [2][Inside Windows 上(邦訳)](http://www.amazon.co.jp/%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89WINDOWS-%E7%AC%AC6%E7%89%88-%E4%B8%8A-Microsoft-Press/dp/4822294706)
+    * [2][Inside Windows 下(邦訳)](http://www.amazon.co.jp/dp/4822294714/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=187205609&pf_rd_s=lpo-top-stripe&pf_rd_t=201&pf_rd_i=4822294706&pf_rd_m=AN1VRQENFRJN5&pf_rd_r=1NY7PCVZYNP7YZ2J2MXJ)
 * COM
-    * [3][Essential COM(邦訳)]()
+    * [3][Essential COM(邦訳)](http://www.amazon.co.jp/Essential-ASCII-Addison-Wesley-Programming/dp/4756130666)
 * .NET Framework
     * [4][.NET Framework -CLR via C#-](http://www.amazon.co.jp/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-NET-Framework-%E7%AC%AC4%E7%89%88-Microsoft-Press/dp/4822294951)
 
