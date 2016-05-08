@@ -1,6 +1,6 @@
 class: center, middle
 
-# Windowsの使い方基礎編 via COM and .NET Framework
+# Summary of Windowsの使い方基礎編 via COM and .NET Framework
 
 ---
 
@@ -68,3 +68,6 @@ Javaの仕組みは
 * Visual Studio
 * Internet Explorer
 
+使い道としては
+* .NET Frameworkのライブラリでエクセル操作
+* .NET FrameworkからCOMを経由してエクセル操作
