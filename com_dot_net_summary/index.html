@@ -5,14 +5,10 @@
   <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
   <script type="text/javascript">
-    //remark macros
-    remark.macros.scale = function (percentage) {
-      var url = this;
-      return '<img src="' + url + '" style="width: ' + percentage + '" />';
-    };
-
     var slideshow = remark.create({
-      sourceUrl: "contents.md"
+      sourceUrl: "contents.md",
+      highlightStyle: 'default',
+      highlightLanguage: 'sh'
     });
 
     // Setup MathJax
