@@ -1,19 +1,20 @@
 class: center, middle
 
-# Windowsの使い方基礎編 via COM and .NET Framework
+# Summary of Windowsの使い方基礎編 via COM and .NET Framework
 
 ---
 
 ### 大事なこと
 
 Windowsはオブジェクト指向が大好き
+* Microsoft純正のものはオブジェクトとして操作できることが多い
 
 ---
 
 ### Component Object Model
-オブジェクト指向プログラミングの（ある意味の）一般化。
-動的ライブラリ(dll)をOSやコンパイラに依存しない形で利用できるように、Microsoftが策定した仕様。
 COMはオブジェクト指向と親和性のあるdllを作る技術。
+動的ライブラリ(dll)をOSやコンパイラに依存しない形で利用できるように、Microsoftが策定した仕様。
+オブジェクト指向プログラミングの（ある意味の）一般化。
 
 ### dllの問題
 * 作ったライブラリは同じ言語、コンパイラ、OSでないと再利用できない(ことが多い、多かった)
@@ -45,7 +46,7 @@ COMを作って、ExcelやWordなどをオブジェクトとして操作でき�
 ---
 
 ### .NET Framework
-COMのOSやコンパイラに依存しないという目的の為に作られた。
+COMはOSやコンパイラに依存しないという目的の為に作られた。
 この目的をCOMより上手く実現した言語がJava
 
 Javaの仕組みは
@@ -67,3 +68,6 @@ Javaの仕組みは
 * Visual Studio
 * Internet Explorer
 
+使い道としては
+* .NET Frameworkのライブラリでエクセル操作
+* .NET FrameworkからCOMを経由してエクセル操作
