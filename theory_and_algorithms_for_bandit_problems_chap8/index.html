@@ -1,0 +1,42 @@
+<DOCTYPE html>
+<html>
+<head><title>Presentation</title></head>
+<body>
+  <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+  <script type="text/javascript">
+    var slideshow = remark.create({
+      sourceUrl: "contents.md",
+      highlightStyle: 'default',
+      highlightLanguage: 'sh'
+    });
+
+    //remark macros
+    remark.macros.scale = function (percentage) {
+      var url = this;
+      return '<img src="' + url + '" style="width: ' + percentage + '" />';
+    };
+
+    // Setup MathJax
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      },
+      TeX: { 
+        equationNumbers: {
+			autoNumber: "AMS",
+			formatNumber: function (n) {return n}, 
+			formatTag: function (n) {return '(8.'  + n + ')'}
+		}
+      }
+    });
+    MathJax.Hub.Queue(function() {
+      $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+        return(elem.SourceElement());
+      }).parent().addClass('has-jax');
+    });
+    MathJax.Hub.Configured();
+  </script>
+</body>
+</html>
