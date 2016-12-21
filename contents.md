@@ -7,3 +7,5 @@
     * com and .Net framework summary
 * [non_parametric_bayes_chap8](http://i05nagai.github.io/slides_remark/non_parametric_bayes_chap8/)
     * ノンパラメトリックベイズ8章
+* [theory_and_algorithms_for_bandit_problems_chap8](http://i05nagai.github.io/slides_remark/theory_and_algorithms_for_bandit_problems_chap8/)
+    * バンディット問題の理論とアルゴリズム8章
