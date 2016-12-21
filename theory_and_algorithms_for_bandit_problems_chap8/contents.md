@@ -1,24 +1,21 @@
 class: center, middle
 
-# バンディット問題の理論とアルゴリズム
-## Chapter 8. 連続腕バンディットとベイズ最適化
+### バンディット問題の理論とアルゴリズム
+#### Chapter 8. 連続腕バンディットとベイズ最適化
 
 ---
 
 ### 概要
-
 * Chap8まで
     * 有限個$K$のスロット（選択肢）
     * 時刻$t$で、スロット$i$を選ぶと報酬$X_{i}(t)$
     * $T$までの報酬の和を最大化する
-
 * 特に線形バンディット(Chap7)では
     * 有限個$K$のスロット（選択肢）
     * 時刻$t$で、スロット$i$を選ぶと報酬$X_{i}(t)$
     * 報酬$X\_{i}(t) = a\_{i}(t)^{\mathrm{T}} \theta + \epsilon(t)$
         * 報酬が線形な形でかける場合を考えた
     * $T$までの報酬の和を最大化する
-
 * Chap8では
     * 選択肢が（非可算）無限個$\mathcal{A} \subset \mathbb{R}^{d}$
     * 時刻$t$で、選択肢$a\_{t}$を選ぶと報酬$f\_(a\_{t})$得られる
@@ -26,31 +23,29 @@ class: center, middle
 
 ---
 
-### 問題の単純な例(離散バンディット)
-* $\mathcal{A}$を位置として考える
+#### 問題の単純な例(離散バンディット)
 * 離散の場合は$K=4$箇所にセンサや自動販売機などがおける
 * 時刻$t$で位置$i(t)$に対して何らかの報酬$X_{i(t)}(t)$が得られる
-* 位置を替えて報酬$X_{i(t)}(t)$を最大化
+* 時刻ごとに位置を替えて報酬$X_{i(t)}(t)$を最大化
 
 .center[![:scale 50%](image/discrete_bandit_problem_example.png)]
 
 
 ---
 
-### 問題の単純な例(連続バンディット)
+#### 問題の単純な例(連続バンディット)
 * 連続の場合は直線上の好きな位置にセンサや自動販売機などがおける
 * 時刻$t$で位置$a\_{t}$に対して何らかの報酬$f(a\_{t})$が得られる
 * 位置を替えて報酬の和を$\sum\_{s=1}^{T}f(a\_{s})$を最大化
 
-.center[![:scale 50%](image/continuous_bandit_problem_ecample.png)]
+.center[![:scale 50%](image/continuous_bandit_problem_example.png)]
 
 
 ---
 
 ### その他の例
 
-* あるモデルのHyper parameterの$\theta \in \Theta = \mathcal{A}$を考える
-    * 正規分布の
+* あるモデルのHyper parameterを$\theta \in \Theta = \mathcal{A} \subset \mathbb{R}^{d}$を考える
 * 時刻$t$でhyper parameterを1つ選択$\theta\_{t} \in \Theta$すると、訓練（学習）データに対する誤差（報酬の負値）$-f(\theta\_{t})$が得られる
 * 誤差の和を最小（報酬を最大）にするように、$\theta\_{1}, \ldots, \theta\_{T}$を選ぶ
 
@@ -64,12 +59,12 @@ class: center, middle
 
 * 選択肢$a \in \mathcal{A}$に対応した報酬$f(a)$が与えられる
 * 時刻$t = 1, \ldots, T$で、選択肢$a\_{t} \in \mathcal{A}$を選び報酬$f(a\_{t})$を受け取る
-* $T$での報酬が最大になるように、うまく選択肢を選ぶ
+* $T$までの報酬の和が最大になるように、うまく選択肢を選ぶ
 
 このとき、以下を満たす$(a\_{1}, \ldots, a\_{T}) \in \mathcal{A}^{T}$を見つける
 
 $$
-\arg\max\_{(a\_{1}, \ldots, a\_{T})} \sum\_{s=1}^{T} f(a\_{t})
+\arg\max\_{(a\_{1}, \ldots, a\_{T}) \mathcal{A}^{T}} \sum\_{s=1}^{T} f(a\_{t})
 $$
 
 但し、時刻$t+1$での選択肢は時刻$1$から$s$までの選択肢$a\_{1}, \ldots, a\_{t}$を考慮して決めて良い
@@ -88,6 +83,7 @@ $$
     * 連続腕の確率的バンディット
 2. 時点$t$での選択肢の選び方(連続腕バンディット方策)について述べる
     * 各種のacquisition function
+    * UCB方策やThompson samplingの類似物
 
 ---
 
@@ -179,6 +175,7 @@ $$
 * 導出は多次元正規分布の密度関数に対する条件付き密度関数の性質を利用する
     * [Multivariate normal distribution - Wikipedia](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)など
     * 逆行列の計算はブロック行列に対する逆行列の計算を利用(Appendix A)
+    * $k(\cdot, \cdot)$をどのような関数にするかは最後に述べる
 
 ---
 
@@ -287,7 +284,7 @@ $$
 
 ### 連続腕（の確率的）バンディットの方策(2/4)
 
-#### トンプソン抽出(Tompson sampling)
+#### トンプソン抽出(Thompson sampling)
 時刻$t+1$で以下の方法で選択肢を選ぶ
 
 * 非連続のバンディット問題
@@ -296,10 +293,11 @@ $$
     * 生成した乱数の中で最大のものを選択
 * 連続腕のバンディット問題
     * $s \in \mathbb{N}$を適当に決める
-    * $f(a\_{1}), \ldots, f(a\_{t})$が与えられた下での$f(a\_{1}^{\prime}), \ldots f(a\_{s}^{\prime})$の条件付き確率を求める
-        * $\eqref{conditional-probability}$を拡張できる
-    * 条件付き確率にもとづいて、$s$個のサンプルを生成
-    * 値が最大のものを選択
+    * $a\_{1}^{\prime}, \ldots, a\_{s}^{\prime} \in \mathcal{A}$を適当にとって、$\mathcal{A}$を離散化する
+    * $f(a\_{1}), \ldots, f(a\_{t})$が与えられた下での$(f(a\_{1}^{\prime}), \ldots f(a\_{s}^{\prime}))$の$s$次元の条件付き確率を求める
+        * $\eqref{conditional-probability}$を拡張すれば、条件付き確率は求まる
+    * 条件付き確率にもとづいて、$s$個の乱数を生成
+    * 乱数の中で値が最大のものを選択
 
 
 ---
@@ -307,7 +305,7 @@ $$
 ### 連続腕（の確率的）バンディットの方策(3/4)
 
 #### 期待値改善量方策（Improvement-based acquisition functions）
-以下を定義する
+時刻$t$までの報酬の最大値より、報酬の高い選択$a$を$t+1$の選択とする感じの方法
 
 * $a\_{t}^{\*} := \arg\max\_{s \in \\{1, \ldots, t\\}} f(a\_{s})$
     * 時刻$t$までの選択肢で報酬最大の選択肢
@@ -324,7 +322,7 @@ $$
 
 #### 連続腕（の確率的）バンディットの方策(3.5/4)
 * GP-UCBとEI方策は、時刻$t$である値を最大にする選択$a$を$\mathcal{A}$から選ぶ方法
-    * Tomphson sammplingは$s$個ときめてsampleをとるので違う
+    * Thompson sammplingは$s$個ときめてsampleをとるので違う
 * $a \in \mathcal{A}$の中から最大値を探す最大化問題を解く必要がある
 
 
@@ -348,9 +346,11 @@ $$
 ---
 
 #### 連続腕（の確率的）バンディットの方策(4/4)
-具体的なアルゴリズム
 
 .center[![:scale 100%](image/simultaneous_optimistic_optimization_algorithm.png)]
+
+領域の中心点の報酬を計算するということは、中心点を選択$a\_{h, i}$しているということ。
+つまり、報酬の計算回数と今までの時刻$t$が対応している。
 
 ---
 
@@ -383,7 +383,7 @@ g(z; \nu) :=
     0 < \nu \le \infty
 $$
 
-ここで、$\Gamma(\cdot)$はガンマ関数で、$K\_{\nu}$は第2種ベッセル関数
+ここで、$\Gamma(\cdot)$はガンマ関数で、$K\_{\nu}$は[第2種ベッセル関数](https://en.wikipedia.org/wiki/Bessel_function)
 
 ---
 
