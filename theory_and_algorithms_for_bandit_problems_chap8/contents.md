@@ -32,7 +32,7 @@ class: center, middle
 * 時刻$t$で位置$i(t)$に対して何らかの報酬$X_{i(t)}(t)$が得られる
 * 位置を替えて報酬$X_{i(t)}(t)$を最大化
 
-.center[![:scale 50%](image/discrete_bandit_problem.png)]
+.center[![:scale 50%](image/discrete_bandit_problem_example.png)]
 
 
 ---
@@ -42,7 +42,7 @@ class: center, middle
 * 時刻$t$で位置$a\_{t}$に対して何らかの報酬$f(a\_{t})$が得られる
 * 位置を替えて報酬の和を$\sum\_{s=1}^{T}f(a\_{s})$を最大化
 
-.center[![:scale 50%](image/continuous_bandit_problem.png)]
+.center[![:scale 50%](image/continuous_bandit_problem_ecample.png)]
 
 
 ---
