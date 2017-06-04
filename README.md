@@ -7,6 +7,21 @@ Overview
 
 ## Description
 
+To locally develop your slides, you execute one of the following commands.
+For python2,
+
+```
+python -m SimpleHTTPServer
+```
+
+For python3,
+
+```
+python -m http.server
+```
+
+Then access to `http://localhost:8000`.
+
 ## Requirement
 
 ## Licence
